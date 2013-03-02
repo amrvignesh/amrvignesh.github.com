@@ -1,0 +1,15 @@
+{
+  "name": "M-Converter",
+  "description": "A currency converter app built on jQuery-Mobile and using Google finance API to take rates.
+
+Need the input as amount of currency and the type of currencies to be converted in between.",
+  "launch_path": "/",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "Vicky A M R",
+    "url": "http://ossj.appspot.com"
+  },
+  "default_locale": "en"
+}
