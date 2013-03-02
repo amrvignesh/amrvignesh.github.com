@@ -1,16 +1,22 @@
-Content-Type: application/x-web-app-manifest+json
 {
-  "name": "M-Converter",
+  "name": "M-Converter",  
+  "version": "0.1",
+  "keywords": [
+    "M-Converter",
+    "FirefoxOS",
+    "OpenWebApp"
+  ],
+  "author": "Vicky A M R @amrvignesh"
   "description": "A currency converter app built on jQuery-Mobile and using Google finance API to take rates.
-
 Need the input as amount of currency and the type of currencies to be converted in between.",
-  "launch_path": "/",
-  "icons": {
-    "128": "/img/icon-128.png"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amrvignesh/amrvignesh.github.com.git"
   },
-  "developer": {
+    "developer": {
     "name": "Vicky A M R",
     "url": "http://ossj.appspot.com"
   },
   "default_locale": "en"
+  "homepage": "https://amrvignesh.guthub.com/",
 }
