@@ -7,14 +7,13 @@
     "OpenWebApp"
   ],
   "author": "Vicky A M R @amrvignesh"
-  "description": "A currency converter app built on jQuery-Mobile and using Google finance API to take rates.
-Need the input as amount of currency and the type of currencies to be converted in between.",
+  "description": "A currency converter app built on jQuery-Mobile and using Google finance API to take rates.Need the input as amount of currency and the type of currencies to be converted in between.",
   "repository": {
     "type": "git",
     "url": "git://github.com/amrvignesh/amrvignesh.github.com.git"
   },
     "developer": {
-    "name": "Vicky A M R",
+    "name": "Vicky",
     "url": "http://ossj.appspot.com"
   },
   "default_locale": "en"
