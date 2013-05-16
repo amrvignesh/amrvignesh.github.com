@@ -6,7 +6,7 @@
     "FirefoxOS",
     "OpenWebApp"
   ],
-  "author": "Vicky A M R @amrvignesh"
+  "author": "Vicky"
   "description": "A currency converter app built on jQuery-Mobile and using Google finance API to take rates.
 Need the input as amount of currency and the type of currencies to be converted in between.",
   "repository": {
