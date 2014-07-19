@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- App file -->
+<!-- Author: @amrvignesh -->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <script src="jquery.min.js">
+        </script>
+        <script src="jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+        <!-- User-generated css -->
+        <style>
+        </style>
+        <!-- User-generated js -->
+        <script>
+            try {
+
+    $(function() {
+	/* alert('Enter the amount you wants to convert and select the money type!!'); */
+    });
+
+  } catch (error) {
+    console.error("Your javascript has an error: " + error);
+  }
+        </script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header">
+                <h3 id="mc_title">
+                    M-Converter
+                </h3>
+            </div>
+            <div data-role="content">
+                <div id="mc_grid" class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                                <label for="f_tb">
+                                </label>
+                                <input name="f_tb" id="f_tb" placeholder="" value="" type="number" />
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                      <select id="c1" name='currencies'>
+						   <option value='USD' title='United States Dollar'>USD</option>
+						   <option value='AED' title='United Arab Emirates Dirham'>AED</option>
+						   <option value='AUD' title='Australian Dollar'>AUD</option>
+						   <option value='CHF' title='Swiss Franc'>CHF</option>
+						   <option value='GBP' title='British Pound Sterling'>GBP</option>
+						   <option value='INR' title='Indian Rupee'>INR</option>
+						   <option value='JPY' title='Japanese Yen'>JPY</option>
+						   <option value='KWD' title='Kuwaiti Dinar'>KWD</option>
+						   <option value='QAR' title='Qatari Rial'>QAR</option>
+						   <option value='RUB' title='Russian Ruble'>RUB</option>
+						   <option value='SAR' title='Saudi Riyal'>SAR</option>
+						   <option value='SGD' title='Singapore Dollar'>SGD</option>
+						</select>
+                    </div>
+                    <div class="ui-block-a">
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup">
+                                <label for="s_tb">
+                                </label>
+                                <input name="s_tb" id="s_tb" placeholder="" value="" type="number" />
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                    	<select id="c2" name='currencies'>
+						   <option value='INR' title='Indian Rupee'>INR</option>
+						   <option value='AED' title='United Arab Emirates Dirham'>AED</option>
+						   <option value='AUD' title='Australian Dollar'>AUD</option>
+						   <option value='CHF' title='Swiss Franc'>CHF</option>
+						   <option value='GBP' title='British Pound Sterling'>GBP</option>
+						   <option value='JPY' title='Japanese Yen'>JPY</option>
+						   <option value='KWD' title='Kuwaiti Dinar'>KWD</option>
+						   <option value='QAR' title='Qatari Rial'>QAR</option>
+						   <option value='RUB' title='Russian Ruble'>RUB</option>
+						   <option value='SAR' title='Saudi Riyal'>SAR</option>
+						   <option value='SGD' title='Singapore Dollar'>SGD</option>
+						   <option value='USD' title='United States Dollar'>USD</option>
+						</select>
+                    </div>
+                </div>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3>
+                    Tested :)
+                </h3>
+            </div>
+        </div>
+    </body>
+    
+    <script>
+    	var currency = ["AED", "AUD", "CHF", "GBP", "INR", "JPY", "KWD", "QAR", "RUB", "SAR", "SGD", "USD"];
+    	//localStorage.clear();
+    	$.each(currency, function(key, val) {
+    		$.getJSON(
+    				"http://rate-exchange.appspot.com/currency?from=USD&to="+val+"&callback=?", 
+        			function(data) {
+      					localStorage.setItem( val, data.rate );
+      					localStorage.setItem('USD',1);
+        	});
+    	});
+    	$('#c1').change(function() {
+    		$('#s_tb').val(($('#f_tb').val()*localStorage.getItem($('#c2').val()))/localStorage.getItem($('#c1').val()));
+  			
+		});
+    	$('#c2').change(function() {
+    		$('#s_tb').val(($('#f_tb').val()*localStorage.getItem($('#c2').val()))/localStorage.getItem($('#c1').val()));
+  			
+		});
+    	$('#f_tb').change(function() {
+    		$('#s_tb').val(($('#f_tb').val()*localStorage.getItem($('#c2').val()))/localStorage.getItem($('#c1').val()));
+		});
+    	$('#s_tb').change(function() {
+    		$('#f_tb').val(($('#s_tb').val()*localStorage.getItem($('#c1').val()))/localStorage.getItem($('#c2').val()));
+		});
+    </script>
+</html>
